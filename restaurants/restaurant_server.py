@@ -1,30 +1,9 @@
 # A simple server using WSGI.
-import test as t
+import Kreuzberglist as k
 #import html.parser as parser
 from wsgiref.simple_server import make_server
 
-message = """
-<html>
-<head>
-  <title>test</title>
-</head>
-<body>
-
-<p>
-  test
-</p>
-<form action="/parseForm.py" method="post">
-  <label for="area">Your Area: </label>
-  <input type="radio" id="area" value="1">Kreuzberg<br>
-  <input type="radio" id="area" value="2">Wedding<br>
-  <input type="radio" id="area" value="3">Neukölln<br>
-  <input type="radio" id="area" value="4">Spandau<br>
-  <input type="submit" value="Send">
-</form>
-</body>
-</html>
-
-"""
+message = k.message
 
 def simple_app(_environ, start_response):
 

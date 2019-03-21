@@ -28,3 +28,4 @@ def prepare_message(list_restaurants):
         price.append(restaurant[3])
 
 prepare_message(list_restaurants)
+
