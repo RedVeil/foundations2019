@@ -1,30 +1,32 @@
+#!/usr/local/bin/python3
+
 import cgi
-import database as d
+#import database as d
 
 
 form = cgi.FieldStorage()
-v_area = form.getvalue('area')
+v_area = form.getvalue("area")
 
 
-def list_restaurants(name,area):
+'''def list_restaurants(name,area):
     list_restaurants = """"""
     for name in d.name:
         index = d.name.index(name)
-        if d.area[index] == v_area:
+        if d.area[index] == area:
             list_restaurants += "<li>{}</li>\n".format(name)
-    return list_restaurants
+    return list_restaurants'''
 
-message = """
+print("""
+<html>
 <head>
   <title>Restaurants in Berlin</title>
 </head>
 <body>
 <h1>Restaurants in Kreuzberg</h1>
-<ul>
-{}
-</ul>
+<p>
+test, %s
+</p>
 </body>
-""".format(list_restaurants(d.name,v_area))
-
-
-print(message)
+</html>
+""" % v_area
+)

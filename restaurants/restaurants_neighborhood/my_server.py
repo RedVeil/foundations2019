@@ -6,7 +6,7 @@ import socketserver
 handler = http.server.CGIHTTPRequestHandler
 handler.cgi_directories = ["/scripts"]
 
-PORT = 8002
+PORT = 5005
 httpd =  socketserver.TCPServer(("127.0.0.1", PORT), handler)
 
 httpd.server_name = "myServer"
