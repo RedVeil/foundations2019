@@ -20,8 +20,9 @@ def simple_app(_environ, start_response):
 
 
 # define server daemon
-httpd = make_server('localhost', 8001, simple_app)
-print("WSGI server on port 8000...")
+PORT = 8001
+httpd = make_server('localhost', PORT, simple_app)
+print("WSGI server on port ", PORT)
 
 # server
 httpd.serve_forever()

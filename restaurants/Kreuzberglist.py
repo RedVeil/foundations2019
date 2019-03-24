@@ -1,12 +1,10 @@
 import database as d
 
-def list_restaurants(name):
-    list_restaurants = """"""
-    for name in d.name:
-        index = d.name.index(name)
-        if d.area[index] == 1:
-            list_restaurants += "<li>{}</li>\n".format(name)
-    return list_restaurants
+def restaurants(lst):
+    restaurants = """"""
+    for name in lst:
+            restaurants += "<li>{}</li>\n".format(name[1])
+    return restaurants
 
 message = """
 <head>
@@ -19,6 +17,6 @@ message = """
 </ul>
 </form>
 </body>
-""".format(list_restaurants(d.name))
+""".format(restaurants(d.__init__()))
 
 print(message)
