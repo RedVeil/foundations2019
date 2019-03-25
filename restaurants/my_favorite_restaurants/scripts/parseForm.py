@@ -36,7 +36,7 @@ def get_neighborhood_id(area,db_cursor):
 
 def restaurants(list_restaurants):
     restaurants = """"""
-    for name in lst:
+    for name in list_restaurants:
             restaurants += "<li>{}</li>\n".format(name[1])
     print("""
     <html>
