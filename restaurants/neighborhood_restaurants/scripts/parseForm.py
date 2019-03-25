@@ -6,7 +6,7 @@ import cgi
 
 form = cgi.FieldStorage()
 v_area = form.getvalue("area")
-
+#v_area = 1
 
 def get_database(v_area):
     db_connection = sqlite3.connect('my_restaurants.db')

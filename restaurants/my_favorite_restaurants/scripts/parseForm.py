@@ -24,7 +24,7 @@ def get_restaurants(db_cursor):
 
 
 def add_user(user_name, neighborhood_id, db_cursor):
-    db_cursor.execute("UPDATE user SET name = {user_name}, NEIGHBORHOOD_ID={neighborhood_id}".format(user_name = v_name, neighborhood_id=neighborhood_id))
+    db_cursor.execute("UPDATE user INSERT name = {user_name}, NEIGHBORHOOD_ID={neighborhood_id}".format(user_name = v_name, neighborhood_id=neighborhood_id))
     get_restaurants(db_cursor)
 
 
