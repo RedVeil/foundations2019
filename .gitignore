@@ -10,13 +10,13 @@
 !*/
 
 #re-ignore directories we don't want
-/scraping/*
 /website_flask/flaskr.egg-info/
-/website_flask/Include/
+Include/
 /website_flask/instance/
-/website_flask/Lib/
+Lib/
 /website_flask/Scripts/
-/website_flask/tcl/
+/scraping/Scripts/
+tcl/
 
 /website_flask/LICENSE.txt
 #unignore important website_flask files
