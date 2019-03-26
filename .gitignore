@@ -15,9 +15,9 @@ Include/
 /website_flask/instance/
 Lib/
 /website_flask/Scripts/
-/scraping/Scripts/
+/scraping_intro/Scripts/
 tcl/
-
+.vscode/
 /website_flask/LICENSE.txt
 #unignore important website_flask files
 !/website_flask/setup.py
