@@ -1,0 +1,25 @@
+
+.colorful{
+  color:blue
+}
+
+h1{
+  display: block;
+  font-size:60px;
+  left-margin: auto;
+  right-margin: auto;}
+
+.question_cards{
+  width: 300px;
+  background-color: #111;
+}
+
+p{
+  font-size: : 30px;
+}
+
+.color_preview{
+  width: 60px;
+  height: 20px;
+  background-color: black;
+}

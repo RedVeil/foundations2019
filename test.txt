@@ -1,9 +1,0 @@
-Navigate to the folder called “somedir” 
-Explore the contents of the directory
-Find the file “success.txt” in one of the sub-directories
-Read the contents of the file
-Bonus: Find the hidden file!
-
-
-QWERTZUIOPÜ*ASDFGHJKLÖÄYXCVBNM;:_*'!"§$%&/()=?`²³{[]}\~@€µ@€°
-	
