@@ -1,0 +1,23 @@
+## adapted from https://stackoverflow.com/questions/5711120/gitignore-without-binary-files 
+
+# ignore all files
+*
+
+# un-ignore all files with an extension 
+!*.*
+
+# un-ignore all directories 
+!*/
+
+#re-ignore directories we don't want
+/restaurants/__pycache__/
+/neighborhood_restaurants/__pycache__/
+/website_flask/
+/scraping/*
+
+#unignore important website_flask files
+!/website_flask/setup.py
+!/website_flask/flaskr
+
+
+
