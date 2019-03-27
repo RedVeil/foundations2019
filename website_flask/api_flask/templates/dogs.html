@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}This is a good boy!{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+    <div>
+        <img src={{ url }} alt="A good Boy">
+        <a href="{{ url_for('dogs.start') }}">Wanna see another good boy?</a>
+    </div>
+{% endblock %}
+  
