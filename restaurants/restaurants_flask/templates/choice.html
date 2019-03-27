@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}Choose your Neighborhood{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+    <p>what the title says...</p>
+    <form action="" method="POST">
+        <p>
+            {{ form.area.label }}<br>
+            {{ form.area }}
+        </p>
+        <p>{{ form.submit }}</p>
+    </form>
+{% endblock %}
+  

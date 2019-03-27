@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Choose your Neighborhood{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="GET">
+  <label for="username">Neighborhood</label>
+  <input type=radio name="area" id="1" value="Kreuzberg">Kreuzberg
+  <input type=radio name="area" id="2" value="Wedding">Wedding
+  <input type=radio name="area" id="3" value="Neukölln">Neukölln
+  <input type=radio name="area" id="4" value="Spandau">Spandau
+  <input type=radio name="area" id="5" value="Mitte">Mitte
+  <input type="submit">
+</form>
+<p>Or safe your Name and Area for later</p>
+  <form method="post">
+    <label for="username">Name</label>
+    <input name="username" id="username" required>
+    <label for="area">Neighborhood</label>
+    <input type="text" name="area" id="area" required>
+    <input type="submit">
+  </form>
+{% endblock %}
