@@ -68,8 +68,16 @@ def unique_recipients(days_list):
             recipients[day.recipient] += 1
     return recipient_frequency(recipients)
 
-
-
+def usecase(month_list):
+    essen = ["DE91700202700015820755", "DE75200907004055624073", "DE03200907002535050071", "DE68750200730008472092"]
+    rewe = []
+    for month in month_list:
+        for day in month:
+            if "DE91700202700015820755" in day.recipient_account or "DE75200907004055624073"in day.recipient_account or "DE03200907002535050071" in day.recipient_account or "DE68750200730008472092" in day.recipient_account:
+                rewe.append(day)
+    print(rewe)
+    print(len(rewe))
+    
 
 #step 1 - open table, sort in to object and than those in to a list (days)
 if __name__=="__main__":
@@ -84,8 +92,9 @@ if __name__=="__main__":
                 days.append(Day(i.split(";")[1], i.split(";")[5],i.split(";")[-6],i.split(";")[-5], i.split(";")[-3] ))
             days.reverse()
             small_recipients, medium_recipients, heavy_recipients = unique_recipients(days)
-            call_months(days) 
-
+            months2018, months2019 = call_months(days) 
+            usecase(months2018)
+            usecase(months2019)
 
 
 ##sort recipients in to groups

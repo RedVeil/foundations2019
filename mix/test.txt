@@ -1,9 +1,37 @@
-Navigate to the folder called “somedir” 
-Explore the contents of the directory
-Find the file “success.txt” in one of the sub-directories
-Read the contents of the file
-Bonus: Find the hidden file!
+ï»¿'"BERLINER SPARKASSE"': 27, '       bargeld -> essen u.Ã¤.
+"PayPal (Europe) S.a.r.l. et Cie., S.C.A."': 59,           -    games
+ '"Anja Niesler"': 12,     ->
+ '"Telefonica Germany GmbH + Co. OHG"': 13,     -  handy
+ '"Tom Gebhardt"': 12, '     
+ "Hermann Poehler"': 12, '"      - miete
+ REWE SAGT DANKE. 42400116//Berlin/DE"': 29, '    - essen
+ "NETTO MARKEN-DISCOU//BERLIN/DE"': 12, '        - essen
+ "REWE SAGT DANKE. 42402698//Berlin Kreuzberg/DE"': 12} -    uni essen
 
 
-QWERTZUIOPÜ*ASDFGHJKLÖÄYXCVBNM;:_*'!"§$%&/()=?`²³{[]}\~@€µ@€°
-	
+
+ {'"Coinbase UK, Ltd."': 5,      - crypto
+ '"XING SE Dammtorstr. 30"': 3,    - 
+  '"Niesler, Anja"': 4,        -    
+  '"Leon Niesler"': 4, 
+  '""': 5, 
+  '"Rauthe, Hermann"': 5, 
+  '"Renate Zuehlke"': 10, 
+ '"Vodafone Kabel Deutschland GmbH  Beta-Str. 6-8"': 10,     -internet
+  '"NETTO MARKEN-DISCOU."': 7,     - essen
+  '"Jakob Slotta"': 10,       -strom/miete
+  '"Arne Zerndt"': 7,
+  '"NIEMANN SWANTJE"': 7, 
+ '"REWE SAGT DANKE. 42400769//Berlin Pankow/DE"': 6,      -  essen
+  '"CITY MARKT GMBH + CO KG//BERLIN/DE"': 5,      - essen
+  '"Hermann Rauthe"': 5,
+  '"EDEKA 5407, BERLIN//BERLIN/DE"': 6,           - essen
+  '"REWE SAGT DANKE. 42402691//Berlin Kreuzberg/DE"': 3,         - essen
+  '"REAL,- BERLIN RINGC//BERLIN/DE"': 6}            -    essen
+
+
+
+3,6,12, 29, 2,1,2,1,1
+
+
+'"DE91700202700015820755"' = REWE
