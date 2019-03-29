@@ -13,19 +13,11 @@ def create_app():
     @app.route('/hello')
     def hello():
         return "test"
-        
-
-    # @app.route("/test")
-    # def test():
-    #     return render_template("baser.html")
-
+  
     from . import selection
     app.register_blueprint(selection.bp)
 
-    # 
-    # from . import selection
-    # app.register_blueprint(selection.dp)
-    #from . import restaurants_list
-    # app.register_blueprint(restaurants_list.bp)
+    from . import restaurants_api
+    app.register_blueprint(restaurants_api.bp)
 
     return app

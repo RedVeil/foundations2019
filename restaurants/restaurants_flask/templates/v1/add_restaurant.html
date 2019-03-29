@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}Add a new Restaurant{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+    <p>what the title says...</p>
+    <form action="" method="POST">
+        <p>
+            {{ form.restaurant.label }}<br>
+            {{ form.restaurant (size=30, maxlength=50) }}
+        </p>
+        <p>
+            {{ form.address.label }}<br>
+            {{ form.address (size=30, maxlength=50) }}
+        </p>
+        <p>
+            {{ form.area.label }}<br>
+            {{ form.area }}
+        </p> 
+        <p>
+            {{ form.price.label }}<br>
+            {{ form.price }}
+        </p> 
+        <p>{{ form.submit }}</p>
+    </form>
+{% endblock %}

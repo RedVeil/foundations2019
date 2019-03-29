@@ -33,21 +33,4 @@ def test():
 
 
 
-def restaurant_selection():
-    pass
-
-
-def compare_user_area():
-    pass
-
-
-def radio_selection():
-    #area = request.form["area"]
-    if area in g.db["neighborhoods"]:
-        pass
-
-
-
-
-
 

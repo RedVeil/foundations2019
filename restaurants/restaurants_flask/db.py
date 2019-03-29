@@ -5,10 +5,7 @@ from flask import current_app
 from flask.cli import with_appcontext
 
 def close_db(e=None):
-    db = g.pop('db', None)
-
-    if db is not None:
-        db.close()
+    db.close()
 
 def get_db(argument):
     db_connection = sqlite3.connect("my_restaurants.db")
@@ -17,3 +14,26 @@ def get_db(argument):
     list_restaurants = db_cursor.fetchall()
 
     return list_restaurants
+
+
+def get_db_flexible(argument):
+    db_connection = sqlite3.connect("my_restaurants.db")
+    db_cursor = db_connection.cursor()
+    db_cursor.execute(f"SELECT * FROM {argument}")
+    list_restaurants = db_cursor.fetchall()
+
+    return list_restaurants
+
+
+
+def write_to_db(restaurant, neighborhood_id, price_id, address):
+    restaurant = str(restaurant)
+    db_connection = sqlite3.connect("my_restaurants.db")
+    db_connection.execute(
+                "INSERT INTO restaurants (name) VALUES 'test'"
+                )
+    db_connection.commit()
+    db_connection.close()
+
+
+#{restaurant},{neighborhood_id},{price_id},{address}
