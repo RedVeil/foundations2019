@@ -6,13 +6,13 @@ import csv
 
 
 class Transaction:
-    def __init__(self, day, usecase, recipient, recipient_account, amount, categorie=None):
+    def __init__(self, day, usecase, recipient, recipient_account, amount, category=None):
         self.day = day
         self.usecase = usecase
         self.recipient = recipient
         self.recipient_account = recipient_account
         self.amount = amount
-        self.categorie = categorie
+        self.category = category
 
 
 class Month:
@@ -20,7 +20,7 @@ class Month:
     def __init__(self, name, transactions):
         self.name = name
         self.transactions = transactions
-        self.sum_food = 1
+        self.sum_food = 0
         
 
     def __str__(self):
@@ -34,14 +34,19 @@ class Month:
         food=["DE91700202700015820755", "DE75200907004055624073",
             "DE03200907002535050071", "DE68750200730008472092"]
         for transaction in self.transactions:
-            if "DE91700202700015820755" in transaction.recipient_account:
-                return transaction.recipient_account
+            for i in food:
+                if i in transaction.recipient_account:
+            #if "DE91700202700015820755" in transaction.recipient_account:
+                    transaction.category = "food"
         # check if any transaction_account amtches items in list matching to passed category
 
     def calculate_sums(self, category):
         for transaction in self.transactions:
             self.find_category(category)
-            pass
+            if transaction.category == "food":
+                str(transaction.amount).strip()
+                self.sum_food += float(transaction.amount)
+        return self.sum_food
 
 
     
@@ -126,7 +131,8 @@ if __name__ == "__main__":
         transactions=[]
         for row in table:
             a=",".join(row)
-            split_lst.append(a)
+            b = a.replace(",",".")
+            split_lst.append(b)
         for i in split_lst:
             transactions.append(Transaction(i.split(";")[1], i.split(
                 ";")[4], i.split(";")[-6], i.split(";")[-5], i.split(";")[-3]))
@@ -135,7 +141,8 @@ if __name__ == "__main__":
             transactions)
         months2018, months2019=call_months(transactions)
         for i in months2018:
-            print(i.find_category("food"))
+            i.calculate_sums("food")
+            print(i.sum_food)
 
 
 
