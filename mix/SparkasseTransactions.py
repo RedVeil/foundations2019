@@ -1,5 +1,8 @@
 import csv
+import numpy as np
 from matplotlib import pyplot as plt
+from graphs_Sparkasse import show_graph
+
 # 411 days
 
 # step 1.1  - class for days with all necessary attributes
@@ -108,37 +111,6 @@ class Month:
                 self.sum_total += float(transaction.amount)
 
 
-def show_graph(year):
-        food = []
-        rent = []
-        games = []
-        phone = []
-        internet = []
-        food_outside = []
-        crypto = []
-        rest = []
-        expense_titles = ["food", "rent", "games", "phone", "internet","food_outside","crypto","rest"]
-        for month in year:
-            food.append(month.sum_food)
-            rent.append(month.sum_rent)
-            games.append(month.sum_games)
-            phone.append(month.sum_phone)
-            internet.append(month.sum_internet)
-            food_outside.append(month.sum_food_outside)
-            crypto.append(month.sum_crypto)
-            rest.append(month.sum_rest)
-        print(food)
-        plt.bar(range(len(food)),food)
-        plt.bar(range(len(food)),rent, bottom=food)
-        plt.bar(range(len(food)),games, bottom=rent)
-        plt.bar(range(len(food)),phone, bottom=games)
-        plt.bar(range(len(food)),internet, bottom=phone)
-        plt.bar(range(len(food)),food_outside, bottom=internet)
-        plt.bar(range(len(food)),crypto, bottom=food_outside)
-        plt.bar(range(len(food)),rest, bottom=crypto)
-        plt.legend(expense_titles)
-        plt.show()
-
 # step3.1 - take days and sort them in to years
 def break_years(transactions_list):
     year2019 = []
@@ -198,6 +170,19 @@ def unique_recipients(transactions_list):
     return recipient_frequency(recipients)
 
 
+def init_graphs(months):
+    for i in months:
+        i.find_category()
+        i.calculate_sums()
+        i.calculate_total()
+        print(f'''
+        total: {i.sum_total}
+        income:{i.sum_income}, food: {i.sum_food}, games: {i.sum_games}, 
+        rent: {i.sum_rent}, internet: {i.sum_internet}, 
+        crypto: {i.sum_crypto}, phone: {i.sum_phone}, food_outside: {i.sum_food_outside} rest: {i.sum_rest}''' )
+        print("-------")
+    show_graph(months)
+
 
 # step 1 - open table, sort in to object and than those in to a list (days)
 if __name__ == "__main__":
@@ -217,20 +202,11 @@ if __name__ == "__main__":
         small_recipients, medium_recipients, heavy_recipients=unique_recipients(
             transactions)
         months2018, months2019=call_months(transactions)
-        x_values = []
+        init_graphs(months2018)
+        print("__________________________________")
+        init_graphs(months2019)
 
-        for i in months2018:
-            i.find_category()
-            i.calculate_sums()
-            i.calculate_total()
-            #print(f'''
-            #total: {i.sum_total}
-            #income:{i.sum_income}, food: {i.sum_food}, games: {i.sum_games}, 
-            #rent: {i.sum_rent}, internet: {i.sum_internet}, 
-            #crypto: {i.sum_crypto}, phone: {i.sum_phone}, food_outside: {i.sum_food_outside} rest: {i.sum_rest}''' )
-            #print("___________")
-        show_graph(months2018)
-
+        
         
         
         
