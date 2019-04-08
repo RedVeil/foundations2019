@@ -30,10 +30,10 @@ def write_to_db(restaurant, neighborhood_id, price_id, address):
     restaurant = str(restaurant)
     db_connection = sqlite3.connect("my_restaurants.db")
     db_connection.execute(
-                "INSERT INTO restaurants (name) VALUES 'test'"
+                f"INSERT INTO restaurants (name, neighborhood_id,price_range_id,address) VALUES ({restaurant},{neighborhood_id},{price_id},{address})"
                 )
     db_connection.commit()
     db_connection.close()
 
 
-#{restaurant},{neighborhood_id},{price_id},{address}
+#

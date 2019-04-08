@@ -5,7 +5,7 @@ from flask import (
 )
 from flask_wtf import FlaskForm
 from wtforms import StringField, RadioField, SubmitField
-from db import get_db
+from . import db
 
 bp = Blueprint("selection", __name__)
 
@@ -25,7 +25,7 @@ def create_message(lst):
 def test():
     form = SelectionForm()
     if request.method == "POST":
-        list_restaurants = get_db(form.area.data)
+        list_restaurants = db.get_db(form.area.data)
         message = create_message(list_restaurants)
         return render_template("restaurants_list.html", message = message)
     return render_template('choice.html', form= form)

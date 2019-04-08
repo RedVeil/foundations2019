@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, render_template
-from db import get_db   
+
 
 def create_app():
     # create and configure the app
