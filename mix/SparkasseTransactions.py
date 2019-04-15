@@ -3,7 +3,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from graphs_Sparkasse import show_graph
 
-# 411 days
+# USES CSV-MT490-FORMAT
 
 # step 1.1  - class for days with all necessary attributes
 category_dict={"food":["DE91700202700015820755", "DE75200907004055624073",
@@ -13,13 +13,6 @@ category_dict={"food":["DE91700202700015820755", "DE75200907004055624073",
             "rent":["DE55100800000324360600","DE34120300001018874717"], "phone" : ["DE49700400410225563601","DE16700202700005713153"],
             "crypto" : ["EE957700771001355096","EE297700771001961370"], "internet":["DE13380700590045335700"]}
 game_accounts = ["STEAM GAMES", "G2ACOMLIMIT","UBISOFT","INSTANTGAMI","HUMBLEBUNDL","HRK GAME","SWTOR"]
-
-#food - Rewe, Edeka, Netto, Real  -- aufsplitten in outside essen, alc -- bargeld (auszahlungen) einbauen
-# games -- (paypal) in games und anderes unterteilen (achtung auch income)
-# income - hermann, mutter, oma, tom, arne, swantje -- paypal einbauen(tiff?)
-# rent - hermann, jakob strom
-#  
-
 
 
 
@@ -199,8 +192,8 @@ if __name__ == "__main__":
             transactions.append(Transaction(i.split(";")[1], i.split(
                 ";")[4], i.split(";")[-6], i.split(";")[-5], y))
         transactions.reverse()
-        small_recipients, medium_recipients, heavy_recipients=unique_recipients(
-            transactions)
+        small_recipients, medium_recipients, heavy_recipients=unique_recipients(transactions)
+        #print(heavy_recipients)
         months2018, months2019=call_months(transactions)
         init_graphs(months2018)
         print("__________________________________")
@@ -209,7 +202,7 @@ if __name__ == "__main__":
         
         
         
-        
+      
            
 
 
