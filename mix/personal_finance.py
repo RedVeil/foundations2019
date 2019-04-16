@@ -4,11 +4,12 @@ import csv
 
 #step 1.1  - class for days with all necessary attributes
 class Day:
-    def __init__(self, day, usecase, recipient, recipient_account, amount):
+    def __init__(self, day, recipient, recipient_account, amount, usecase = None):
         self.day = day
         self.recipient = recipient
         self.recipient_account = recipient_account
         self.amount = amount
+        self.usecase = usecase
 
 
 def recipients_per_month():
@@ -70,18 +71,25 @@ def unique_recipients(days_list):
 
 def usecase(month_list):
     essen = ["DE91700202700015820755", "DE75200907004055624073", "DE03200907002535050071", "DE68750200730008472092"]
-    rewe = []
     for month in month_list:
         for day in month:
             if "DE91700202700015820755" in day.recipient_account or "DE75200907004055624073"in day.recipient_account or "DE03200907002535050071" in day.recipient_account or "DE68750200730008472092" in day.recipient_account:
-                rewe.append(day)
-    print(rewe)
-    print(len(rewe))
+                day.usecase = "essen"
+    print(month_list[2][1].day)
+    print(month_list[2][1].usecase)
+    print(month_list[2][1].amount)
+    print(month_list[2][1].recipient)
+    print(month_list[2][1].recipient_account)
+    print(month_list[2][1].day)
+    print(month_list[2][4].usecase)
+    print(month_list[2][4].amount)
+    print(month_list[2][4].recipient)
+    print(month_list[2][4].recipient_account)
     
 
 #step 1 - open table, sort in to object and than those in to a list (days)
 if __name__=="__main__":
-    with open("C:/Users/Leon/Desktop/umsatz.csv", "r") as umsatz:
+    with open("C:/Users/Leon/Desktop/umsatz1.csv", "r") as umsatz:
             table = csv.reader(umsatz)
             split_lst = []
             days = []
@@ -92,11 +100,11 @@ if __name__=="__main__":
                 days.append(Day(i.split(";")[1], i.split(";")[5],i.split(";")[-6],i.split(";")[-5], i.split(";")[-3] ))
             days.reverse()
             small_recipients, medium_recipients, heavy_recipients = unique_recipients(days)
-            months2018, months2019 = call_months(days) 
+            months2018, months2019 = call_months(days)
             usecase(months2018)
-            usecase(months2019)
+            #usecase(months2019)
 
-
+#"DE38100500006015618009";"02.03.18";"02.03.18";"FOLGELASTSCHRIFT";"EREF+1002650230415 PP.8031.PP PAYPALMREF+43AJ224SVC6ZSCRED+LU96ZZZ0000000000000000058SVWZ+PP.8031.PP . COUCHSURFIN, Ihr Einkauf bei COUCHSURFIN";"PayPal (Europe) S.a.r.l. et Cie., S.C.A.";"DE88500700100175526303";"DEUTDEFFXXX";"-32,12";"EUR";"Umsatz gebucht"
 ##sort recipients in to groups
 ## compare days in months with groups
 ## create monthly + yearly statistics

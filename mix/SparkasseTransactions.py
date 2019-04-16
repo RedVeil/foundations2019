@@ -1,6 +1,9 @@
 import csv
+import numpy as np
 from matplotlib import pyplot as plt
-# 411 days
+from graphs_Sparkasse import show_graph
+
+# USES CSV-MT490-FORMAT
 
 # step 1.1  - class for days with all necessary attributes
 category_dict={"food":["DE91700202700015820755", "DE75200907004055624073",
@@ -10,13 +13,6 @@ category_dict={"food":["DE91700202700015820755", "DE75200907004055624073",
             "rent":["DE55100800000324360600","DE34120300001018874717"], "phone" : ["DE49700400410225563601","DE16700202700005713153"],
             "crypto" : ["EE957700771001355096","EE297700771001961370"], "internet":["DE13380700590045335700"]}
 game_accounts = ["STEAM GAMES", "G2ACOMLIMIT","UBISOFT","INSTANTGAMI","HUMBLEBUNDL","HRK GAME","SWTOR"]
-
-#food - Rewe, Edeka, Netto, Real  -- aufsplitten in outside essen, alc -- bargeld (auszahlungen) einbauen
-# games -- (paypal) in games und anderes unterteilen (achtung auch income)
-# income - hermann, mutter, oma, tom, arne, swantje -- paypal einbauen(tiff?)
-# rent - hermann, jakob strom
-#  
-
 
 
 
@@ -108,37 +104,6 @@ class Month:
                 self.sum_total += float(transaction.amount)
 
 
-def show_graph(year):
-        food = []
-        rent = []
-        games = []
-        phone = []
-        internet = []
-        food_outside = []
-        crypto = []
-        rest = []
-        expense_titles = ["food", "rent", "games", "phone", "internet","food_outside","crypto","rest"]
-        for month in year:
-            food.append(month.sum_food)
-            rent.append(month.sum_rent)
-            games.append(month.sum_games)
-            phone.append(month.sum_phone)
-            internet.append(month.sum_internet)
-            food_outside.append(month.sum_food_outside)
-            crypto.append(month.sum_crypto)
-            rest.append(month.sum_rest)
-        print(food)
-        plt.bar(range(len(food)),food)
-        plt.bar(range(len(food)),rent, bottom=food)
-        plt.bar(range(len(food)),games, bottom=rent)
-        plt.bar(range(len(food)),phone, bottom=games)
-        plt.bar(range(len(food)),internet, bottom=phone)
-        plt.bar(range(len(food)),food_outside, bottom=internet)
-        plt.bar(range(len(food)),crypto, bottom=food_outside)
-        plt.bar(range(len(food)),rest, bottom=crypto)
-        plt.legend(expense_titles)
-        plt.show()
-
 # step3.1 - take days and sort them in to years
 def break_years(transactions_list):
     year2019 = []
@@ -198,6 +163,19 @@ def unique_recipients(transactions_list):
     return recipient_frequency(recipients)
 
 
+def init_graphs(months):
+    for i in months:
+        i.find_category()
+        i.calculate_sums()
+        i.calculate_total()
+        print(f'''
+        total: {i.sum_total}
+        income:{i.sum_income}, food: {i.sum_food}, games: {i.sum_games}, 
+        rent: {i.sum_rent}, internet: {i.sum_internet}, 
+        crypto: {i.sum_crypto}, phone: {i.sum_phone}, food_outside: {i.sum_food_outside} rest: {i.sum_rest}''' )
+        print("-------")
+    show_graph(months)
+
 
 # step 1 - open table, sort in to object and than those in to a list (days)
 if __name__ == "__main__":
@@ -214,26 +192,17 @@ if __name__ == "__main__":
             transactions.append(Transaction(i.split(";")[1], i.split(
                 ";")[4], i.split(";")[-6], i.split(";")[-5], y))
         transactions.reverse()
-        small_recipients, medium_recipients, heavy_recipients=unique_recipients(
-            transactions)
+        small_recipients, medium_recipients, heavy_recipients=unique_recipients(transactions)
+        #print(heavy_recipients)
         months2018, months2019=call_months(transactions)
-        x_values = []
-
-        for i in months2018:
-            i.find_category()
-            i.calculate_sums()
-            i.calculate_total()
-            #print(f'''
-            #total: {i.sum_total}
-            #income:{i.sum_income}, food: {i.sum_food}, games: {i.sum_games}, 
-            #rent: {i.sum_rent}, internet: {i.sum_internet}, 
-            #crypto: {i.sum_crypto}, phone: {i.sum_phone}, food_outside: {i.sum_food_outside} rest: {i.sum_rest}''' )
-            #print("___________")
-        show_graph(months2018)
+        init_graphs(months2018)
+        print("__________________________________")
+        init_graphs(months2019)
 
         
         
         
+      
            
 
 

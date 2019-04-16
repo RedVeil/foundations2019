@@ -2,18 +2,8 @@ import json
 import urllib.request as request
 
 content = request.urlopen("https://dog.ceo/api/breeds/image/random").read()
-#img = json.loads(content)["message"]
-print(content)
+content = content.decode("UTF-8")
+img = content[content.find("https"):-2]
+print(img)
 
-#html_file = open("test.py", "w+")
 
-#message = """
-#<html>
-#<head></head>
-#<body>
-#<img src={} alt="Good Boy">
-#</body>
-#</html>""".format(img)
-
-#html_file.write(message)
-#html_file.close
